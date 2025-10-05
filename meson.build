@@ -19,6 +19,8 @@ includeDirs = include_directories('include')
 
 src = [
   'src/main.cpp',
+  'src/particle.cpp',
+  'src/system.cpp',
 ]
 
 exe = executable(
