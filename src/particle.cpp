@@ -4,6 +4,10 @@ Particle::Particle(Vector2 position){
 	this->position = position;
 }
 
+Particle::Particle(Vector2 position, Color clr){
+	this->position = position;
+	this->clr = clr;
+}
 Particle::Particle(Vector2 position, Vector2 velocity){
 	this->position = position;
 	this->velocity = velocity;
@@ -20,8 +24,8 @@ void Particle::Update(){
 }
 
 void Particle::UpdateVelocity(){
-	this->velocity.x += this->acceleration.x;
-	this->velocity.y += this->acceleration.y;
+	this->velocity.x += this->acceleration.x * GetFrameTime();
+	this->velocity.y += this->acceleration.y * GetFrameTime();
 }
 
 void Particle::UpdateVelocity(Vector2 velocity){
@@ -37,7 +41,7 @@ void Particle::UpdatePosition(Vector2 position){
 }
 
 void Particle::Render(){
-	DrawCircle(position.x, position.y, 5.0f, WHITE);
+	DrawCircle(position.x, position.y, 5.0f, clr);
 }
 
 Vector2 Particle::getPosition(){
